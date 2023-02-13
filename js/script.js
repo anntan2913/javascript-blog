@@ -1,4 +1,5 @@
-    /*
+{  
+   /*
     document.getElementById('test-button').addEventListener('click', function(){
     const links = document.querySelectorAll('.titles a');
     console.log('links:', links);
@@ -38,14 +39,15 @@
         const targetArticle = document.querySelector(articleSelector);
         console.log(targetArticle);
       
-        /* [IN PROGRESS] add class 'active' to the correct article */
+        /* [DONE] add class 'active' to the correct article */
 
-
-
-      }
+        console.log('targetArticle:', targetArticle);
+        targetArticle.classList.add('active');
+    }
       
       const links = document.querySelectorAll('.titles a');
       
       for(let link of links){
         link.addEventListener('click', titleClickHandler);
-      }
+        }
+    }
