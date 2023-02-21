@@ -52,7 +52,7 @@
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list',
-    optArticleAuthorSelector = '.post .post-author .list';
+    optArticleAuthorSelector = '.post .post-author';
 
   function generateTitleLinks(customSelector = '') {
 
@@ -100,7 +100,6 @@
   }
   generateTitleLinks();
 
-
   /* Add Tags */
 
   function generateTags(){
@@ -115,9 +114,7 @@
 
       /* find tags wrapper */
 
-      const tagsWrapper = article.querySelector(optArticleTagsSelector).innerHTML;
-      console.log('tagswrapper', tagsWrapper);
-      tagsWrapper.innerHTML = '';
+      const tagsWrapper = article.querySelector(optArticleTagsSelector);
 
       /* make html variable with empty string */
 
@@ -126,7 +123,7 @@
       /* get tags from data-tags attribute */
 
       const articleTags = article.getAttribute('data-tags');
-      console.log('articleTags',articleTags);
+      console.log(articleTags);
 
       /* split tags into array */
 
@@ -140,8 +137,8 @@
 
         /* generate HTML of the link */
 
-        const linkHTML = `<li><a href="#tag-${tag}"><span>${tag}</span></a></li>`;
-        console.log('html',linkHTML);
+        const linkHTML = '<li><a href="#tag-'+ tag +'"><span>'+ tag +'</span></a></li>';
+        console.log('html', linkHTML);
 
         /* add generated code to html variable */
 
@@ -155,9 +152,10 @@
 
       /* END LOOP: for every article: */
     }
+
   }
   generateTags();
-  console.log ('Tags generated!');
+
 
   /* Fourth task */
 
@@ -185,11 +183,11 @@
       /* remove class active */
       activeTagLink.classList.remove('active');
 
-      /* END LOOP: for each active tag link */
-    }
-    /* find all tag links with "href" attribute equal to the "href" constant */
 
-    const hrefTagLinks = document.querySelectorAll('a[href="' + href + '"]');
+    } /* END LOOP: for each active tag link */
+
+    /* find all tag links with "href" attribute equal to the "href" constant */
+    const hrefTagLinks = document.querySelectorAll('[href^="#tag-"]');
 
     /* START LOOP: for each found tag link */
     for (let hrefTagLink of hrefTagLinks) {
@@ -206,14 +204,14 @@
   function addClickListenersToTags() {
     /* find all links to tags */
 
-    const links = document.querySelectorAll('.list .list-horizontal a, .list .tags a');
+    const tagLinks = document.querySelectorAll('a[href^="#tag-"]');
 
     /* START LOOP: for each link */
 
-    for (const link of links) {
+    for (const tagLink of tagLinks) {
 
       /* add tagClickHandler as event listener for that link */
-      link.addEventListener('click',tagClickHandler);
+      tagLink.addEventListener('click',tagClickHandler);
 
     }/* END LOOP: for each link */
   }
@@ -237,14 +235,14 @@
       /* make html variable with empty string */
       let html = '';
 
-      /* get author from data-tags attribute */
-      const author = article.getAttribute('data-author');
+      /* get author from data-author attribute */
+      const authorName = article.getAttribute('data-author');
 
       /* generate HTML of the link */
-      const linkHTML= `<p class="post-author"><a href="#author-${author}"><span>${author}</span></a></p>`;
+      const authorLinkHTML= `<p class="post-author"><a href="#author-${authorName}"><span>${authorName}</span></a></p>`;
 
       /* add generated code to html variable */
-      html = html + linkHTML;
+      html = html + authorLinkHTML;
 
       /* insert HTML of the links into the author wrapper */
       authorWrapper.innerHTML = html;
@@ -299,14 +297,14 @@
   function addClickListenersToAuthors() {
     /* find all links to authors */
 
-    const links = document.querySelectorAll('.post .post-author, .list');
+    const authorLinks = document.querySelectorAll('a[href^="#author-"]');
 
     /* START LOOP: for each link */
 
-    for (const link of links) {
+    for (const authorLink of authorLinks) {
 
       /* add authorClickHandler as event listener for that link */
-      link.addEventListener('click',authorClickHandler);
+      authorLink.addEventListener('click',authorClickHandler);
 
     }/* END LOOP: for each link */
   }
