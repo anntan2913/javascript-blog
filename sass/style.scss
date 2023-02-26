@@ -37,6 +37,7 @@ body {
   text-transform: uppercase;
   font-family: $font-header;
   font-weight: 600;
+  text-decoration: overline;
 
   span {
     text-transform: none;
@@ -89,7 +90,7 @@ body {
   padding: 0;
 
   .active {
-    font-weight: bold;
+    font-weight: bolder;
     text-decoration: none;
   }
 }
@@ -101,12 +102,50 @@ body {
   }
 }
 
+ul.list.tags {
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+a.tag-size-5 {
+  font-family: auto;
+  font-weight: 900;
+  font-size: x-large;
+  color: darkslategray;
+  text-decoration: none;
+}
+
+a.tag-size-3 {
+  font-size: medium;
+  font-family: fantasy;
+  text-decoration: none;
+  color: darkgrey;
+}
+
+a.tag-size-1 {
+  font-size: small;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: monospace;
+  color: mediumvioletred;
+}
+
 /* Authors */
 
 .authors {
   li {
     margin-bottom: 12px;
   }
+}
+
+ul.list.authors {
+  text-decoration: none;
+  font-size: 16px;
+  font-family: system-ui;
+  font-style: italic;
 }
 
 /* Post */
@@ -125,7 +164,7 @@ body {
 }
 
 .post-tags {
-  display: flex;
+  display: inline-flex;
 
   p {
     margin: 0 10px 0 0;
