@@ -3,7 +3,7 @@
 /* Variables */
 
 $color-light: #fff;
-$color-dark: #444;
+$color-dark: #141313;
 $color-medium: #BDC581;
 $color-element: #58B19F;
 
@@ -15,6 +15,12 @@ $font-text: 'Source Sans Pro', sans-serif;
 
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: $color-dark;
+  font-weight: 600;
 }
 
 body {
@@ -41,7 +47,7 @@ body {
 
   span {
     text-transform: none;
-    font-weight: 400;
+    font-weight: 600;
     color: lighten($color-dark, 20%);
   }
 }
@@ -110,7 +116,7 @@ ul.list.tags {
   align-content: center;
 }
 
-a.tag-size-5 {
+a.\35 {
   font-family: auto;
   font-weight: 900;
   font-size: x-large;
@@ -118,14 +124,14 @@ a.tag-size-5 {
   text-decoration: none;
 }
 
-a.tag-size-3 {
+a.\33 {
   font-size: medium;
   font-family: fantasy;
   text-decoration: none;
   color: darkgrey;
 }
 
-a.tag-size-1 {
+a.\31 {
   font-size: small;
   font-weight: bold;
   text-decoration: none;
@@ -157,10 +163,18 @@ ul.list.authors {
     display: block;
 
   }
+
+}
+h3.post-title {
+  font-size: larger;
+  font-family: monospace;
+  color: darkmagenta;
+  text-shadow: 2px 4px 10px rgb(207, 104, 216);
 }
 
 .post-author {
   font-style: italic;
+  list-style: none;
 }
 
 .post-tags {

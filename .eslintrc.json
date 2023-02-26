@@ -28,6 +28,9 @@
             "off"
         ],
         "no-prototype-builtins": ["off"],
+
         "no-inner-declarations":[0, "always"]
+
+
     }
 }
